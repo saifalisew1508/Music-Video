@@ -63,16 +63,17 @@ OWNER_ID = int(os.environ["OWNER_ID"])
 LIVE_CHATS = []
 
 START_TEXT = """
-━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 **𝙷𝚎𝚕𝚕𝚘**, <b>{}</b> **𝙸'𝚖 𝚂𝚞𝚙𝚎𝚛 𝙵𝚊𝚜𝚝 𝙼𝚞𝚜𝚒𝚌 𝙿𝚕𝚊𝚢𝚎𝚛 𝙱𝚘𝚝 𝙵𝚘𝚛 𝚃𝚎𝚕𝚎𝚐𝚛𝚊𝚖 𝙶𝚛𝚘𝚞𝚙𝚜 𝙰𝚕𝚕𝚘𝚠𝚜 𝚈𝚘𝚞 𝙿𝚕𝚊𝚢 𝙼𝚞𝚜𝚒𝚌 𝙰𝚗𝚍 𝚅𝚒𝚍𝚎𝚘𝚜 𝙾𝚗 𝙶𝚛𝚘𝚞𝚙 𝚃𝚑𝚛𝚘𝚞𝚐𝚑 𝚃𝚑𝚎 𝙽𝚎𝚠 𝚃𝚎𝚕𝚎𝚐𝚛𝚊𝚖 𝚅𝚒𝚍𝚎𝚘 𝙲𝚑𝚊𝚝....**
 ┏━━━━━━━━━━━━━━━━━┓
 ┣★ **𝙱𝚊𝚜𝚎𝚍 𝙾𝚗 𝙻𝚊𝚝𝚎𝚜𝚝 𝚅𝚎𝚛𝚜𝚒𝚘𝚗**
-┣★ **𝚂𝚞𝚙𝚎𝚛𝙵𝚊𝚜𝚝 𝙰𝚗𝚍 𝙱𝚎𝚜𝚝 𝙰𝚞𝚍𝚒𝚘 𝚀𝚞𝚊𝚕𝚒𝚝𝚢**
-┣★ **𝙰𝚍𝚍 𝚃𝚘 𝚈𝚘𝚞𝚛 𝙶𝚛𝚘𝚞𝚙 𝙰𝚗𝚍 𝙼𝚊𝚔𝚎 𝚂𝚞𝚛𝚎 𝙼𝚎 𝙰𝚍𝚖𝚒𝚗**
-┣★ **𝙰𝚗𝚢 𝚀𝚞𝚎𝚛𝚢 𝙰𝚗𝚍 𝙱𝚞𝚐 𝚁𝚎𝚙𝚘𝚛𝚝:** @MissCutie_Support
+┣★ **𝙱𝚎𝚜𝚝 𝙰𝚞𝚍𝚒𝚘 𝚀𝚞𝚊𝚕𝚒𝚝𝚢**
+┣★ **𝚂𝚞𝚙𝚎𝚛 𝙵𝚊𝚜𝚝 𝙱𝚘𝚝**
+┣★ **𝚁𝚎𝚙𝚘𝚛𝚝 𝚈𝚘𝚞𝚛 𝙱𝚞𝚐:** ↬ [𝙷𝚎𝚛𝚎](https://t.me/MissCutie_Support)
+┣★ **𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝙱𝚢:** @MissCutieBots
 ┣★**𝙼𝚊𝚗𝚊𝚐𝚎𝚍 𝙱𝚢:** @SAIFALISEW1508 
 ┗━━━━━━━━━━━━━━━━━┛
-━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 """
 
 START_BUTTONS = InlineKeyboardMarkup(
@@ -82,7 +83,7 @@ START_BUTTONS = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton("📝 𝙼𝚞𝚜𝚒𝚌 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜", callback_data="cbcmds"),
-            InlineKeyboardButton("🇮🇳 𝙳𝚎𝚟𝚕𝚘𝚙𝚎𝚛", url="https://t.me/saifalisew1508")
+            InlineKeyboardButton("🇮🇳 𝙼𝚊𝚗𝚊𝚐𝚎𝚛", url="https://t.me/saifalisew1508")
         ],
         [
             InlineKeyboardButton("🧞‍♂ 𝚂𝚞𝚙𝚙𝚘𝚛𝚝", url="https://t.me/MissCutie_Support"),
