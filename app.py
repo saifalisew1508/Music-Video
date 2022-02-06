@@ -285,18 +285,18 @@ async def cbcmds(_, query: CallbackQuery):
     await query.answer("Commands Menu")
     await query.edit_message_text(
         f"""🗡️🇮🇳🗡️ 𝘏𝘦𝘭𝘭𝘰 » **𝘓𝘪𝘴𝘵 𝘖𝘧 𝘈𝘷𝘢𝘪𝘭𝘢𝘣𝘭𝘦 𝘊𝘰𝘮𝘮𝘢𝘯𝘥𝘴 🗡️🇮🇳🗡️**
-» /play (Song Name/Link) - Play Music
-» /vplay (video name/link) - Play Video
-» /pause - Pause The Song
-» /resume - Resume The Song
-» /skip - switch to next Song
-» /end - Stop The Streaming
-» /join - Invite Assistant To Your Group
-» /mute - Mute The Assistant On Voice Chat
-» /unmute - UnMute The Assistant On Voice Chat
-» /playlist - Show You The Playlist
-» /restart - Restart The Bot
-⚡  `𝑷𝒐𝒘𝒆𝒓𝒆𝒅 𝑩𝒚:` @MissCutie_Support")
+» /play (𝚂𝚘𝚗𝚐 𝙽𝚊𝚖𝚎/𝙻𝚒𝚗𝚔) - **𝙿𝚕𝚊𝚢 𝙼𝚞𝚜𝚒𝚌**
+» /vplay (𝚟𝚒𝚍𝚎𝚘 𝚗𝚊𝚖𝚎/𝚕𝚒𝚗𝚔) - **𝙿𝚕𝚊𝚢 𝚅𝚒𝚍𝚎𝚘**
+» /pause - **𝙿𝚊𝚞𝚜𝚎 𝚃𝚑𝚎 𝚂𝚘𝚗𝚐**
+» /resume - **𝚁𝚎𝚜𝚞𝚖𝚎 𝚃𝚑𝚎 𝚂𝚘𝚗𝚐**
+» /skip - **𝚜𝚠𝚒𝚝𝚌𝚑 𝚝𝚘 𝚗𝚎𝚡𝚝 𝚂𝚘𝚗𝚐**
+» /end - **𝚂𝚝𝚘𝚙 𝚃𝚑𝚎 𝚂𝚝𝚛𝚎𝚊𝚖𝚒𝚗𝚐**
+» /join - **𝙸𝚗𝚟𝚒𝚝𝚎 𝙰𝚜𝚜𝚒𝚜𝚝𝚊𝚗𝚝 𝚃𝚘 𝚈𝚘𝚞𝚛 𝙶𝚛𝚘𝚞𝚙**
+» /mute - 𝙼𝚞𝚝𝚎 𝚃𝚑𝚎 𝙰𝚜𝚜𝚒𝚜𝚝𝚊𝚗𝚝 𝙾𝚗 𝚅𝚘𝚒𝚌𝚎 𝙲𝚑𝚊𝚝
+» /unmute - **𝚄𝚗𝙼𝚞𝚝𝚎 𝚃𝚑𝚎 𝙰𝚜𝚜𝚒𝚜𝚝𝚊𝚗𝚝 𝙾𝚗 𝚅𝚘𝚒𝚌𝚎 𝙲𝚑𝚊𝚝**
+» /playlist - **𝚂𝚑𝚘𝚠 𝚈𝚘𝚞 𝚃𝚑𝚎 𝙿𝚕𝚊𝚢𝚕𝚒𝚜𝚝**
+» /restart - **𝚁𝚎𝚜𝚝𝚊𝚛𝚝 𝚃𝚑𝚎 𝙱𝚘𝚝**
+⚡  `𝑷𝒐𝒘𝒆𝒓𝒆𝒅 𝑩𝒚:` @MissCutie_Support")"""
 
 
 @app.on_callback_query(filters.regex("get_repo"))
