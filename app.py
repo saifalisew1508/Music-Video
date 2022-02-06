@@ -309,6 +309,21 @@ async def start_private(_, message):
     msg = START_TEXT.format(message.from_user.mention)
     await message.reply_text(text = msg,
                              reply_markup = START_BUTTONS)
+
+
+@bot.on_message(filters.command(["join", "join@MissCutiePlayerBot"]) & filters.group)
+async def join_chat(c: Client, m: Message):
+    chat_id = m.chat.id
+    try:
+        invitelink = await c.export_chat_invite_link(chat_id)
+        if invitelink.startswith("https://t.me/+"):
+            invitelink = invitelink.replace(
+                "https://t.me/+", "https://t.me/joinchat/"
+            )
+            await client.join_chat(invitelink)
+            return await client.send_message(chat_id, "✅ 𝙰𝚜𝚜𝚒𝚜𝚝𝚊𝚗𝚝 𝙹𝚘𝚒𝚗𝚎𝚍 𝚃𝚑𝚎 𝙲𝚑𝚊𝚝")
+    except UserAlreadyParticipant:
+        return await client.send_message(chat_id, "✅ 𝙰𝚜𝚜𝚒𝚜𝚝𝚊𝚗𝚝 𝙰𝚕𝚛𝚎𝚊𝚍𝚢 𝙸𝚗 𝙲𝚑𝚊𝚝")
     
 
 @bot.on_message(filters.command("start") & filters.group)
