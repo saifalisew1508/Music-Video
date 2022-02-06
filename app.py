@@ -78,7 +78,7 @@ START_TEXT = """
 START_BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("♦️ 𝙰𝚍𝚍 𝚈𝚘𝚞𝚛 𝙶𝚛𝚘𝚞𝚙 ♦️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+            InlineKeyboardButton("♦️ 𝙰𝚍𝚍 𝚈𝚘𝚞𝚛 𝙶𝚛𝚘𝚞𝚙 ♦️", url=f"https://t.me/MissCutiePlayerBot?startgroup=true")
         ],
         [
             InlineKeyboardButton("📝 𝙼𝚞𝚜𝚒𝚌 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜", url="https://t.me/saifalisew1508"),
