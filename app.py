@@ -81,7 +81,7 @@ START_BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton("♦️ 𝙰𝚍𝚍 𝚈𝚘𝚞𝚛 𝙶𝚛𝚘𝚞𝚙 ♦️", url=f"https://t.me/MissCutiePlayerBot?startgroup=true")
         ],
         [
-            InlineKeyboardButton("📝 𝙼𝚞𝚜𝚒𝚌 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜", url="https://t.me/saifalisew1508"),
+            InlineKeyboardButton("📝 𝙼𝚞𝚜𝚒𝚌 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜", callback_data="cbcmds"),
             InlineKeyboardButton("🇮🇳 𝙳𝚎𝚟𝚕𝚘𝚙𝚎𝚛", url="https://t.me/saifalisew1508")
         ],
         [
@@ -89,7 +89,7 @@ START_BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton("🔔 𝚄𝚙𝚍𝚊𝚝𝚎𝚜", url="https://t.me/MissCutieUpdates")
         ],
         [
-            InlineKeyboardButton("↫ 𝚁𝚎𝚙𝚘 ↬", url="https://t.me/MissCutieUpdates/2")
+            InlineKeyboardButton("↫ 𝚁𝚎𝚙𝚘 ↬", callback_data="get_repo")
         ]
     ]
 )
@@ -277,7 +277,32 @@ async def callbacks(_, cq: CallbackQuery):
             await cq.answer("Empty queue, stopped streaming.")
         else:
             await cq.answer("Skipped.")
-            
+
+
+@bot.on_callback_query(filters.regex("cbcmds"))
+async def cbcmds(_, query: CallbackQuery):
+    await query.answer("Commands Menu")
+    await query.edit_message_text(
+        f"""🗡️🇮🇳🗡️ 𝘏𝘦𝘭𝘭𝘰 » **𝘓𝘪𝘴𝘵 𝘖𝘧 𝘈𝘷𝘢𝘪𝘭𝘢𝘣𝘭𝘦 𝘊𝘰𝘮𝘮𝘢𝘯𝘥𝘴 🗡️🇮🇳🗡️**
+» /play (Song Name/Link) - Play Music
+» /vplay (video name/link) - Play Video
+» /pause - Pause The Song
+» /resume - Resume The Song
+» /skip - switch to next Song
+» /end - Stop The Streaming
+» /join - Invite Assistant To Your Group
+» /mute - Mute The Assistant On Voice Chat
+» /unmute - UnMute The Assistant On Voice Chat
+» /playlist - Show You The Playlist
+» /restart - Restart The Bot
+⚡  `𝑷𝒐𝒘𝒆𝒓𝒆𝒅 𝑩𝒚:` @MissCutie_Support")
+
+
+@app.on_callback_query(filters.regex("get_repo"))
+async def get_repo(_, CallbackQuery):
+    text = await why so pro bazzi bhaiya()
+    await app.answer_callback_query(CallbackQuery.id, text, show_alert=True)
+
 
 @bot.on_message(filters.command("start") & filters.private)
 async def start_private(_, message):
