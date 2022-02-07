@@ -56,3 +56,6 @@
 ## 📄 License
 
 Distributed under the [MIT Licence.](https://github.com/ImJanindu/47MusicPlayer/blob/main/LICENSE) See `LICENSE.md` for more information.
+
+## Credit
+- [ImJanindu](https://github.com/ImJanindu)
