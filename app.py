@@ -300,8 +300,9 @@ async def cbcmds(_, query: CallbackQuery):
 
 
 @app.on_callback_query(filters.regex("get_repo"))
-async def get_repo(_, CallbackQuery).answer(
-            "This is not for you! Please Make Your Own Repo😏.", show_alert=True
+async def get_repo(_, CallbackQuery):
+    await CallbackQuery.answer(
+            "This is not for you.", show_alert=True)
 
 
 @bot.on_message(filters.command("start") & filters.private)
