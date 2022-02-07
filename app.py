@@ -301,7 +301,7 @@ async def cbcmds(_, query: CallbackQuery):
 
 @app.on_callback_query(filters.regex("get_repo"))
 async def get_repo(_, CallbackQuery):
-    text = await why so pro bazzi bhaiya()
+    text =why so pro bazzi bhaiya()
     await app.answer_callback_query(CallbackQuery.id, text, show_alert=True)
 
 
