@@ -90,7 +90,7 @@ START_BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton("🔔 𝚄𝚙𝚍𝚊𝚝𝚎𝚜", url="https://t.me/MissCutieUpdates")
         ],
         [
-            InlineKeyboardButton("↫ 𝚁𝚎𝚙𝚘 ↬", callback_data="get_repo")
+            InlineKeyboardButton("↫ 𝚁𝚎𝚙𝚘 ↬", callback_data="repo_callback")
         ]
     ]
 )
@@ -299,10 +299,10 @@ async def cbcmds(_, query: CallbackQuery):
 ⚡  `𝑷𝒐𝒘𝒆𝒓𝒆𝒅 𝑩𝒚:` @MissCutie_Support""")
 
 
-@app.on_callback_query(filters.regex("get_repo"))
-async def get_repo(_, CallbackQuery):
-    await CallbackQuery.answer(
-            "This is not for you.", show_alert=True)
+@app.on_callback_query(filters.regex("repo_callback"))
+async def repo_callbacc(_, CallbackQuery):
+    text = await bot_sys_repo()
+    await app.answer_callback_query(CallbackQuery.id, text, show_alert=True)
 
 
 @bot.on_message(filters.command("start") & filters.private)
