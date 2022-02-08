@@ -44,7 +44,7 @@ from pytgcalls.types import (
 from pyrogram import Client, filters
 from pyrogram.raw.base import Update
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, Message
 from helpers.queues import QUEUE, add_to_queue, get_queue, clear_queue, pop_an_item
 from helpers.admin_check import *
 
