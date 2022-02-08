@@ -300,7 +300,7 @@ async def cbcmds(_, query: CallbackQuery):
 
 
 @bot.on_callback_query(filters.regex("repo_callback"))
-async def repo_callback(_, CallbackQuery)
+async def repo_callback(_, CallbackQuery):
 return await CallbackQuery.answer(
                 "Contact Owner", show_alert=True
             )
