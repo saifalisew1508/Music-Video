@@ -300,7 +300,7 @@ async def cbcmds(_, query: CallbackQuery):
 
 
 @app.on_callback_query(filters.regex("repo_callback"))
-async def repo_callbacc(_, CallbackQuery)
+async def repo_callback(_, CallbackQuery)
 return await CallbackQuery.answer(
                 "Music is already Paused", show_alert=True
             )
