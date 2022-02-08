@@ -299,7 +299,7 @@ async def cbcmds(_, query: CallbackQuery):
 ⚡  `𝑷𝒐𝒘𝒆𝒓𝒆𝒅 𝑩𝒚:` @MissCutie_Support""")
 
 
-@app.on_callback_query(filters.regex("repo_callback"))
+@bot.on_callback_query(filters.regex("repo_callback"))
 async def repo_callback(_, CallbackQuery)
 return await CallbackQuery.answer(
                 "Contact Owner", show_alert=True
