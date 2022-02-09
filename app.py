@@ -71,7 +71,7 @@ START_TEXT = """
 ┣★ **𝙱𝚎𝚜𝚝 𝙰𝚞𝚍𝚒𝚘 𝚀𝚞𝚊𝚕𝚒𝚝𝚢**
 ┣★ **𝚂𝚞𝚙𝚎𝚛 𝙵𝚊𝚜𝚝 𝙱𝚘𝚝**
 ┣★ **𝙻𝚒𝚟𝚎 𝚂𝚝𝚛𝚎𝚊𝚖𝚒𝚗𝚐 𝚂𝚞𝚙𝚙𝚘𝚛𝚝𝚎𝚍**
-┣★ **𝚁𝚎𝚙𝚘𝚛𝚝 𝙱𝚞𝚐:** @MissCutie_Support
+┣★ **𝚁𝚎𝚙𝚘𝚛𝚝 𝙱𝚞𝚐𝚜:** @MissCutie_Support
 ┣★ **𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝙱𝚢:** @MissCutieBots
 ┣★**𝙼𝚊𝚗𝚊𝚐𝚎𝚍 𝙱𝚢:** @SAIFALISEW1508 
 ┗━━━━━━━━━━━━━━━━━┛
@@ -92,7 +92,7 @@ START_BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton("🔔 𝚄𝚙𝚍𝚊𝚝𝚎𝚜", url="https://t.me/MissCutieUpdates")
         ],
         [
-            InlineKeyboardButton("↫ 𝚁𝚎𝚙𝚘 ↬", callback_data="repo_callback")
+            InlineKeyboardButton("↫ 𝚂𝚘𝚞𝚛𝚌𝚎 𝙲𝚘𝚍𝚎 ↬", callback_data="repo_callback")
         ]
     ]
 )
@@ -269,7 +269,7 @@ async def join_chat(c: Client, m: Message):
 
 @bot.on_message(filters.command("start") & filters.group)
 async def start_group(_, message):
-    await message.reply_text("🎧 <i>Music player is running.</i>")
+    await message.reply_text("🎧 <i>𝙼𝚞𝚜𝚒𝚌 𝙱𝚘𝚝 𝙸𝚜 𝙰𝚕𝚒𝚟𝚎🎸. 𝙿𝚕𝚎𝚊𝚜𝚎 /start 𝙼𝚎 𝙸𝚗 𝙿𝚎𝚛𝚜𝚘𝚗𝚊𝚕.</i>")
     
     
 @bot.on_message(filters.command(["play", "vplay"]) & filters.group)
@@ -283,9 +283,9 @@ async def video_play(_, message):
         return await message.reply_text(f"<b>Usage:</b> <code>/{state} [query]</code>")
     chat_id = message.chat.id
     if chat_id in LIVE_CHATS:
-        return await message.reply_text("❗️Please send <code>/stop</code> to end current live streaming before play songs or videos.")
+        return await message.reply_text("❗️𝙿𝚕𝚎𝚊𝚜𝚎 𝚂𝚎𝚗𝚍 <code>/stop</code> 𝚃𝚘 𝙴𝚗𝚍 𝙲𝚞𝚛𝚛𝚎𝚗𝚝 𝙻𝚒𝚟𝚎 𝚂𝚝𝚛𝚎𝚊𝚖𝚒𝚗𝚐 𝙱𝚎𝚏𝚘𝚛𝚎 𝙿𝚕𝚊𝚢 𝚂𝚘𝚗𝚐𝚜 𝙾𝚛 𝚅𝚒𝚍𝚎𝚘𝚜.")
     
-    m = await message.reply_text("🔄 Processing...")
+    m = await message.reply_text("🔄 𝙿𝚛𝚘𝚌𝚎𝚜𝚜𝚒𝚗𝚐...")
     if state == "play":
         damn = AudioPiped
         ded = yt_audio
@@ -308,7 +308,7 @@ async def video_play(_, message):
         thumb = results[0]["thumbnails"][0]
         duration = results[0]["duration"]
         yt = YouTube(link)
-        cap = f"▶️ <b>Now playing:</b> [{yt.title}]({link}) | `{doom}` \n\n⏳ <b>Duration:</b> {duration}"
+        cap = f"▶️ <b>𝙽𝚘𝚠 𝙿𝚕𝚊𝚢𝚒𝚗𝚐:</b> [{yt.title}]({link}) | `{doom}` \n\n⏳ <b>Duration:</b> {duration}"
         try:
             ydl_opts = {"format": "bestvideo[height<=720]+bestaudio/best[height<=720]"}
             ydl = youtube_dl.YoutubeDL(ydl_opts)
@@ -359,10 +359,10 @@ async def stream_func(_, message):
     elif state == "livestream":
         damn = AudioVideoPiped
         emj = "🎬"
-    m = await message.reply_text("🔄 Processing...")
+    m = await message.reply_text("🔄 𝙿𝚛𝚘𝚌𝚎𝚜𝚜𝚒𝚗𝚐...")
     try:
         if chat_id in QUEUE:
-            return await m.edit("❗️Please send <code>/stop</code> to end voice chat before live streaming.")
+            return await m.edit("❗️𝙿𝚕𝚎𝚊𝚜𝚎 𝚂𝚎𝚗𝚍 <code>/stop</code> 𝚃𝚘 𝙴𝚗𝚍 𝚅𝚘𝚒𝚌𝚎 𝙲𝚑𝚊𝚝 𝙱𝚎𝚏𝚘𝚛𝚎 𝙻𝚒𝚟𝚎 𝚂𝚝𝚛𝚎𝚊𝚖𝚒𝚗𝚐.")
         elif chat_id in LIVE_CHATS:
             await app.change_stream(
                 chat_id,
@@ -388,9 +388,9 @@ async def skip(_, message):
     if len(message.command) < 2:
         op = await skip_current_song(chat_id)
         if op == 0:
-            await message.reply_text("❗️Nothing in the queue to skip.")
+            await message.reply_text("❗️𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚗 𝚃𝚑𝚎 𝚀𝚞𝚎𝚞𝚎 𝚃𝚘 𝚂𝚔𝚒𝚙.")
         elif op == 1:
-            await message.reply_text("❗️Empty queue, stopped streaming.")
+            await message.reply_text("❗️𝙴𝚖𝚙𝚝𝚢 𝚀𝚞𝚎𝚞𝚎, 𝚂𝚝𝚘𝚙𝚙𝚎𝚍 𝚂𝚝𝚛𝚎𝚊𝚖𝚒𝚗𝚐.")
     else:
         skip = message.text.split(None, 1)[1]
         out = "🗑 <b>Removed the following song(s) from the queue:</b> \n"
@@ -418,11 +418,11 @@ async def playlist(_, message):
         if len(chat_queue) == 1:
             await message.delete()
             await message.reply_text(
-                f"▶️ <b>Now playing:</b> [{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][4]}`",
+                f"▶️ <b>𝙽𝚘𝚠 𝙿𝚕𝚊𝚢𝚒𝚗𝚐:</b> [{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][4]}`",
                 disable_web_page_preview=True,
             )
         else:
-            out = f"<b>📃 Player queue:</b> \n\n▶️ <b>Now playing:</b> [{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][4]}` \n"
+            out = f"<b>📃 Player queue:</b> \n\n▶️ <b>𝙽𝚘𝚠 𝙿𝚕𝚊𝚢𝚒𝚗𝚐:</b> [{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][4]}` \n"
             l = len(chat_queue)
             for x in range(1, l):
                 title = chat_queue[x][0]
@@ -431,7 +431,7 @@ async def playlist(_, message):
                 out = out + "\n" + f"<b>#️⃣ {x}</b> - [{title}]({link}) | `{type}` \n"
             await message.reply_text(out, disable_web_page_preview=True)
     else:
-        await message.reply_text("❗Nothing is playing.")
+        await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
     
 
 @bot.on_message(filters.command("stop") & filters.group)
@@ -442,14 +442,14 @@ async def end(_, message):
     if chat_id in LIVE_CHATS:
         await app.leave_group_call(chat_id)
         LIVE_CHATS.remove(chat_id)
-        return await message.reply_text("⏹ Stopped streaming.")
+        return await message.reply_text("⏹ 𝚂𝚝𝚛𝚎𝚊𝚖𝚒𝚗𝚐 𝚂𝚝𝚘𝚙𝚙𝚎𝚍.")
         
     if chat_id in QUEUE:
         await app.leave_group_call(chat_id)
         clear_queue(chat_id)
-        await message.reply_text("⏹ Stopped streaming.")
+        await message.reply_text("⏹ 𝚂𝚝𝚛𝚎𝚊𝚖𝚒𝚗𝚐 𝚂𝚝𝚘𝚙𝚙𝚎𝚍.")
     else:
-        await message.reply_text("❗Nothing is playing.")
+        await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
         
 
 @bot.on_message(filters.command("pause") & filters.group)
@@ -460,11 +460,11 @@ async def pause(_, message):
     if chat_id in QUEUE:
         try:
             await app.pause_stream(chat_id)
-            await message.reply_text("⏸ Paused streaming.")
+            await message.reply_text("⏸ 𝙿𝚊𝚞𝚜𝚎𝚍 𝚂𝚝𝚛𝚎𝚊𝚖𝚒𝚗𝚐.")
         except:
-            await message.reply_text("❗Nothing is playing.")
+            await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
     else:
-        await message.reply_text("❗Nothing is playing.")
+        await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
         
         
 @bot.on_message(filters.command("resume") & filters.group)
@@ -475,11 +475,11 @@ async def resume(_, message):
     if chat_id in QUEUE:
         try:
             await app.resume_stream(chat_id)
-            await message.reply_text("⏸ Resumed streaming.")
+            await message.reply_text("⏸ 𝚁𝚎𝚜𝚞𝚖𝚎𝚍 𝚂𝚝𝚛𝚎𝚊𝚖𝚒𝚗𝚐.")
         except:
-            await message.reply_text("❗Nothing is playing.")
+            await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
     else:
-        await message.reply_text("❗Nothing is playing.")
+        await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
         
         
 @bot.on_message(filters.command("mute") & filters.group)
@@ -490,11 +490,11 @@ async def mute(_, message):
     if chat_id in QUEUE:
         try:
             await app.mute_stream(chat_id)
-            await message.reply_text("🔇 Muted streaming.")
+            await message.reply_text("🔇 𝙼𝚞𝚝𝚎𝚍 𝚂𝚝𝚛𝚎𝚊𝚖𝚒𝚗𝚐.")
         except:
-            await message.reply_text("❗Nothing is playing.")
+            await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
     else:
-        await message.reply_text("❗Nothing is playing.")
+        await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
         
         
 @bot.on_message(filters.command("unmute") & filters.group)
@@ -505,11 +505,11 @@ async def unmute(_, message):
     if chat_id in QUEUE:
         try:
             await app.unmute_stream(chat_id)
-            await message.reply_text("🔊 Unmuted streaming.")
+            await message.reply_text("🔊 𝚄𝚗𝚖𝚞𝚝𝚎𝚍 𝚂𝚝𝚛𝚎𝚊𝚖𝚒𝚗𝚐.")
         except:
-            await message.reply_text("❗Nothing is playing.")
+            await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
     else:
-        await message.reply_text("❗Nothing is playing.")
+        await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
         
         
 @bot.on_message(filters.command("restart"))
@@ -517,7 +517,7 @@ async def restart(_, message):
     user_id = message.from_user.id
     if user_id != OWNER_ID:
         return
-    await message.reply_text("🛠 <i>Restarting Music Player...</i>")
+    await message.reply_text("🛠 <i>𝚁𝚎𝚜𝚝𝚊𝚛𝚝𝚒𝚗𝚐 𝚃𝚑𝚎 𝙱𝚘𝚝 𝙱𝚘𝚝 𝙿𝚕𝚎𝚊𝚜𝚎 𝚆𝚊𝚒𝚝 ✋🏻 𝙸𝚝'𝚜 𝙼𝚊𝚢 𝚃𝚊𝚔𝚎 𝟺-𝟻 𝙼𝚒𝚗𝚞𝚝𝚎𝚜 🤐...</i>")
     os.system(f"kill -9 {os.getpid()} && python3 app.py")
             
 
