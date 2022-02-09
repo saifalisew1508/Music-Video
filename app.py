@@ -70,7 +70,8 @@ START_TEXT = """
 ┣★ **𝙱𝚊𝚜𝚎𝚍 𝙾𝚗 𝙻𝚊𝚝𝚎𝚜𝚝 𝚅𝚎𝚛𝚜𝚒𝚘𝚗**
 ┣★ **𝙱𝚎𝚜𝚝 𝙰𝚞𝚍𝚒𝚘 𝚀𝚞𝚊𝚕𝚒𝚝𝚢**
 ┣★ **𝚂𝚞𝚙𝚎𝚛 𝙵𝚊𝚜𝚝 𝙱𝚘𝚝**
-┣★ **𝚁𝚎𝚙𝚘𝚛𝚝 𝚈𝚘𝚞𝚛 𝙱𝚞𝚐:**↬ @MissCutie_Support
+┣★ **𝙻𝚒𝚟𝚎 𝚂𝚝𝚛𝚎𝚊𝚖𝚒𝚗𝚐 𝚂𝚞𝚙𝚙𝚘𝚛𝚝𝚎𝚍**
+┣★ **𝚁𝚎𝚙𝚘𝚛𝚝 𝚈𝚘𝚞𝚛 𝙱𝚞𝚐:** @MissCutie_Support
 ┣★ **𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝙱𝚢:** @MissCutieBots
 ┣★**𝙼𝚊𝚗𝚊𝚐𝚎𝚍 𝙱𝚢:** @SAIFALISEW1508 
 ┗━━━━━━━━━━━━━━━━━┛
@@ -288,6 +289,8 @@ async def cbcmds(_, query: CallbackQuery):
         f"""🇮🇳 𝑯𝒆𝒍𝒍𝒐 » **⚜𝑳𝒊𝒔𝒕 𝑶𝒇 𝑨𝒗𝒂𝒊𝒍𝒂𝒃𝒍𝒆 𝑪𝒐𝒎𝒎𝒂𝒏𝒅𝒔⚜**
 » /play (𝚂𝚘𝚗𝚐 𝙽𝚊𝚖𝚎/𝙻𝚒𝚗𝚔) - **𝙿𝚕𝚊𝚢 𝙼𝚞𝚜𝚒𝚌**
 » /vplay (𝚟𝚒𝚍𝚎𝚘 𝚗𝚊𝚖𝚎/𝚕𝚒𝚗𝚔) - **𝙿𝚕𝚊𝚢 𝚅𝚒𝚍𝚎𝚘**
+» /liveplay (𝚈𝚘𝚞𝚃𝚞𝚋𝚎 𝙻𝚒𝚗𝚔) - **𝙿𝚕𝚊𝚢 𝙻𝚒𝚟𝚎 𝙼𝚞𝚜𝚒𝚌**
+» /livestream (𝚈𝚘𝚞𝚃𝚞𝚋𝚎 𝙻𝚒𝚗𝚔) - **𝚂𝚝𝚛𝚎𝚊𝚖 𝙻𝚒𝚟𝚎 𝚅𝚒𝚍𝚎𝚘**
 » /pause - **𝙿𝚊𝚞𝚜𝚎 𝚃𝚑𝚎 𝚂𝚘𝚗𝚐**
 » /resume - **𝚁𝚎𝚜𝚞𝚖𝚎 𝚃𝚑𝚎 𝚂𝚘𝚗𝚐**
 » /skip - **𝚜𝚠𝚒𝚝𝚌𝚑 𝚝𝚘 𝚗𝚎𝚡𝚝 𝚂𝚘𝚗𝚐**
@@ -297,7 +300,7 @@ async def cbcmds(_, query: CallbackQuery):
 » /unmute - **𝚄𝚗𝙼𝚞𝚝𝚎 𝚃𝚑𝚎 𝙰𝚜𝚜𝚒𝚜𝚝𝚊𝚗𝚝 𝙾𝚗 𝚅𝚘𝚒𝚌𝚎 𝙲𝚑𝚊𝚝**
 » /playlist - **𝚂𝚑𝚘𝚠 𝚈𝚘𝚞 𝚃𝚑𝚎 𝙿𝚕𝚊𝚢𝚕𝚒𝚜𝚝**
 » /restart - **𝚁𝚎𝚜𝚝𝚊𝚛𝚝 𝚃𝚑𝚎 𝙱𝚘𝚝**
-⚡  `𝑷𝒐𝒘𝒆𝒓𝒆𝒅 𝑩𝒚:` @MissCutie_Support""")
+⚡  𝑷𝒐𝒘𝒆𝒓𝒆𝒅 𝑩𝒚: @MissCutieBots""")
 
 
 @bot.on_callback_query(filters.regex("repo_callback"))
@@ -403,7 +406,7 @@ async def video_play(_, message):
         return await m.edit(str(e))
     
     
-@bot.on_message(filters.command(["saudio", "svideo"]) & filters.group)
+@bot.on_message(filters.command(["liveplay", "livestream"]) & filters.group)
 @is_admin
 async def stream_func(_, message):
     await message.delete()
@@ -414,10 +417,10 @@ async def stream_func(_, message):
         return await message.reply_text(f"<b>Usage:</b> <code>/{state} [link]</code>")
     chat_id = message.chat.id
     
-    if state == "saudio":
+    if state == "liveplay":
         damn = AudioPiped
         emj = "🎵"
-    elif state == "svideo":
+    elif state == "livestream":
         damn = AudioVideoPiped
         emj = "🎬"
     m = await message.reply_text("🔄 Processing...")
