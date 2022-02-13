@@ -3,5 +3,5 @@ tgcrypto
 py-tgcalls
 youtube_search
 pytube
-yt_dlp
+git+https://github.com/saifalisew1508/MissCutieSolution@master
 youtube_dl
