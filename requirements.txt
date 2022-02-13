@@ -1,6 +1,6 @@
 pyrogram
 tgcrypto
-py-tgcalls==0.8.5
+py-tgcalls==0.8.6
 youtube_search
 pytube
 git+https://github.com/saifalisew1508/MissCutieSolution@master
