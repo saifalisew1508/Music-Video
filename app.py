@@ -115,6 +115,15 @@ BUTTONS = InlineKeyboardMarkup(
     ]
 )
 
+GROUP_BUTTONS = InlineKeyboardMarkup(
+    [
+        [
+            InlineKeyboardButton(text="• 𝚂𝚞𝚙𝚙𝚘𝚛𝚝 •", url="https://t.me/MissCutie_Support"),
+            InlineKeyboardButton(text="• 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜 •", url="callback_data="cbcmds")
+        ]
+    ]
+)
+
 async def skip_current_song(chat_id):
     if chat_id in QUEUE:
         chat_queue = get_queue(chat_id)
@@ -271,7 +280,9 @@ async def join_chat(c: Client, m: Message):
 
 @bot.on_message(filters.command("start") & filters.group)
 async def start_group(_, message):
-    await message.reply_text("🎧 <i>𝙼𝚞𝚜𝚒𝚌 𝙱𝚘𝚝 𝙸𝚜 𝙰𝚕𝚒𝚟𝚎🎸. 𝙿𝚕𝚎𝚊𝚜𝚎 /start 𝙼𝚎 𝙸𝚗 𝙿𝚎𝚛𝚜𝚘𝚗𝚊𝚕.</i>")
+    await message.reply_photo(photo="https://te.legra.ph/file/c64734caae40345289712.jpg",
+                              caption = f"𝙷𝚎𝚕𝚕𝚘 🚀 {message.from_user.mention} 🥁 𝙼𝚞𝚜𝚒𝚌 𝙱𝚘𝚝 𝙸𝚜 𝙰𝚕𝚒𝚟𝚎🎸.",
+                              reply_markup = GROUP_BUTTONS)
     
     
 @bot.on_message(filters.command(["play", "vplay"]) & filters.group)
