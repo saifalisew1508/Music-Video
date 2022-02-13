@@ -119,7 +119,7 @@ GROUP_BUTTONS = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton(text="• 𝚂𝚞𝚙𝚙𝚘𝚛𝚝 •", url="https://t.me/MissCutie_Support"),
-            InlineKeyboardButton(text="• 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜 •", url="callback_data="cbcmds")
+            InlineKeyboardButton(text="• 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜 •", callback_data="cbcmds")
         ]
     ]
 )
