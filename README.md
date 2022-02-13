@@ -45,7 +45,7 @@
 | /resume  | resume the audio stream                              |
 | /mute    | mute the userbot                                     |
 | /unmute  | unmute the userbot                                   |
-| /stop    | stop streaming and remove the userbot from the call  |
+| /stop    | stop streaming and remove the assistant from the call  |
 | /restart | restart the bot                                      |
 
 ## ❤️ Support
