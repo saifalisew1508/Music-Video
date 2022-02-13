@@ -1,11 +1,11 @@
-<h2 align= center><b>🎧 47Music Player 🎧</b></h2>
+<h2 align= center><b>🎧 Music Player 🎧</b></h2>
 <h4 align = center>A Powerful and Simple Telegram Bot<br> that can play songs & videos in Telegram group voice chats</h4>
 
 <p align='center'>
 <a href="https://www.python.org/" alt="made-with-python"> <img src="https://img.shields.io/badge/Made%20with-Python-1f425f.svg?style=flat-square&logo=python&color=blue"></a>
 <a href="https://github.com/ImJanindu/47MusicPlayerBot/graphs/commit-activity" alt="Maintenance"> <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square"></a></p>
 
-<p align="center"><a href="https://t.me/JaguarBots"><img src="https://telegra.ph/file/4c03ff6d25fc678a2fe08.jpg" height="300" width="310" alt="Music Player"></p>
+<p align="center"><a href="https://t.me/MissCutieBots"><img src="https://te.legra.ph/file/c64734caae40345289712.jpg" height="300" width="310" alt="Music Player"></p>
   
 ## 👀 Features
 - Fast & Powerful player
@@ -37,8 +37,8 @@
 | -------  | ---------------------------------------------------- |
 | /play    | play the given query or YouTube link as audio        |
 | /vplay   | play the given query or YouTube link as video        |
-| /saudio  | stream m3u8 or live stream audio link                |
-| /svideo  | stream m3u8 or live stream video link                |
+| /liveplay | stream m3u8 or live stream audio link                |
+| /livestream | stream m3u8 or live stream video link                |
 | /queue   | shows the songs in queue                             |        
 | /skip    | play next song in queue                              |
 | /pause   | pause the audio stream                               |
