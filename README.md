@@ -43,8 +43,8 @@
 | /skip    | play next song in queue                              |
 | /pause   | pause the audio stream                               |
 | /resume  | resume the audio stream                              |
-| /mute    | mute the userbot                                     |
-| /unmute  | unmute the userbot                                   |
+| /mute    | mute the assistant                                    |
+| /unmute  | unmute the assistant                                  |
 | /stop    | stop streaming and remove the assistant from the call  |
 | /restart | restart the bot                                      |
 
