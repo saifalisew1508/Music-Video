@@ -50,12 +50,13 @@
 
 ## ❤️ Support
 
-<a href="https://t.me/JaguarBotsChat"><img src="https://img.shields.io/badge/Join-Telegram%20Group-blue.svg?logo=telegram" alt="Group"></a><br>
-<a href="https://t.me/JaguarBots"><img src="https://img.shields.io/badge/Join-Telegram%20Channel-red.svg?logo=Telegram" alt="Channel"></a>
+<a href="https://t.me/MissCutie_Support"><img src="https://img.shields.io/badge/Join-Telegram%20Group-blue.svg?logo=telegram" alt="Group"></a><br>
+<a href="https://t.me/MissCutieBots"><img src="https://img.shields.io/badge/Join-Telegram%20Channel-red.svg?logo=Telegram" alt="Channel"></a>
 
 ## 📄 License
 
 Distributed under the [MIT Licence.](https://github.com/ImJanindu/47MusicPlayer/blob/main/LICENSE) See `LICENSE.md` for more information.
 
 ## Credit
-- [ImJanindu](https://github.com/ImJanindu)
+- [ImJanindu](https://github.com/ImJanindu) For Main Repo
+- [Saif](https://github.com/saifalisew1508) For Some Changes
