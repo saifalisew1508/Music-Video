@@ -235,7 +235,7 @@ async def repo_callback(_, CallbackQuery):
                 "𝙽𝚒𝚌𝚎 𝚃𝚛𝚢 𝙼𝚊𝚗 𝙱𝚞𝚝 𝙾𝚗𝚎 𝚃𝚑𝚒𝚗𝚐 𝙰𝚛𝚎 𝚈𝚘𝚞 𝙰 𝙱𝚒𝚝𝚌𝚑 𝚃𝚑𝚎𝚢 𝚆𝚘𝚞𝚕𝚍 𝙾𝚗𝚕𝚢 𝙰𝚜𝚔 𝙼𝚎 𝚃𝚑𝚎 𝙰𝚋𝚘𝚞𝚝 𝚂𝚘𝚞𝚛𝚌𝚎 𝙲𝚘𝚍𝚎😏 ©️MissCutieBots@SAIFALISEW1508", show_alert=True
             )
 
-@bot.on_message(filters.command("start","help") & filters.private)
+@bot.on_message(filters.command("start", "help") & filters.private)
 async def start_private(_, message):
     msg = START_TEXT.format(message.from_user.mention)
     await message.reply_photo(photo="https://te.legra.ph/file/ab6eb4c9785d231233c71.jpg",
