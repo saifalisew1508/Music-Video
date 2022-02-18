@@ -100,6 +100,15 @@ GROUP_BUTTONS = InlineKeyboardMarkup(
     ]
 )
 
+BACK_BUTTON = InlineKeyboardMarkup(
+    [
+        [
+            InlineKeyboardButton(text="• Back •", callback_data="back"),
+            InlineKeyboardButton(text="• Source •", callback_data="repo_callback")
+        ]
+    ]
+)
+
 async def skip_current_song(chat_id):
     if chat_id in QUEUE:
         chat_queue = get_queue(chat_id)
@@ -224,9 +233,7 @@ async def cbcmds(_, query: CallbackQuery):
 » /playlist - **𝚂𝚑𝚘𝚠 𝚈𝚘𝚞 𝚃𝚑𝚎 𝙿𝚕𝚊𝚢𝚕𝚒𝚜𝚝**
 » /restart - **𝚁𝚎𝚜𝚝𝚊𝚛𝚝 𝚃𝚑𝚎 𝙱𝚘𝚝**
 ⚡  𝑷𝒐𝒘𝒆𝒓𝒆𝒅 𝑩𝒚: @MissCutieBots""",
-    reply_markup = [
-                       InlineKeyboardButton(text="back" , callback_data="back"
-
+    reply_markup = BACK_BUTTON)
 
 @bot.on_callback_query(filters.regex("repo_callback"))
 async def repo_callback(_, CallbackQuery):
