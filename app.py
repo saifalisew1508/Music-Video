@@ -232,7 +232,13 @@ async def cbcmds(_, query: CallbackQuery):
 » /unmute - **𝚄𝚗𝙼𝚞𝚝𝚎 𝚃𝚑𝚎 𝙰𝚜𝚜𝚒𝚜𝚝𝚊𝚗𝚝 𝙾𝚗 𝚅𝚘𝚒𝚌𝚎 𝙲𝚑𝚊𝚝**
 » /playlist - **𝚂𝚑𝚘𝚠 𝚈𝚘𝚞 𝚃𝚑𝚎 𝙿𝚕𝚊𝚢𝚕𝚒𝚜𝚝**
 » /restart - **𝚁𝚎𝚜𝚝𝚊𝚛𝚝 𝚃𝚑𝚎 𝙱𝚘𝚝**
-⚡  𝑷𝒐𝒘𝒆𝒓𝒆𝒅 𝑩𝒚: @MissCutieBots""")
+⚡  𝑷𝒐𝒘𝒆𝒓𝒆𝒅 𝑩𝒚: @MissCutieBots""",
+    reply_markup = BACK_BUTTON)
+
+@Client.on_callback_query(filters.regex("back"))
+async def back_cb(bot, message):
+   await message.answer()
+   await start(bot, message, True)
 
 @bot.on_callback_query(filters.regex("repo_callback"))
 async def repo_callback(_, CallbackQuery):
@@ -243,7 +249,7 @@ async def repo_callback(_, CallbackQuery):
 @bot.on_message(filters.command("start") & filters.private)
 async def start_private(_, message):
     msg = START_TEXT.format(message.from_user.mention)
-    await message.reply_photo(photo="https://telegra.ph/file/8fddb775d567de8a63940.jpg",
+    await message.reply_photo(photo="https://te.legra.ph/file/ab6eb4c9785d231233c71.jpg",
                               caption = msg,
                               reply_markup = START_BUTTONS)
 
