@@ -103,7 +103,7 @@ GROUP_BUTTONS = InlineKeyboardMarkup(
 BACK_BUTTON = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(text="• Back •", callback_data="back"),
+            InlineKeyboardButton(text="• Back •", callback_data="help_back"),
             InlineKeyboardButton(text="• Source •", callback_data="repo_callback")
         ]
     ]
@@ -228,10 +228,6 @@ async def cbcmds(_, query: CallbackQuery):
 ⚡  𝑷𝒐𝒘𝒆𝒓𝒆𝒅 𝑩𝒚: @MissCutieBots""",
     reply_markup = BACK_BUTTON)
 
-@bot.on_callback_query(filters.regex("back"))
-async def back(_, message):
-    await message.answer()
-    await start_private(_, message)
 
 @bot.on_callback_query(filters.regex("repo_callback"))
 async def repo_callback(_, CallbackQuery):
@@ -239,7 +235,7 @@ async def repo_callback(_, CallbackQuery):
                 "𝙽𝚒𝚌𝚎 𝚃𝚛𝚢 𝙼𝚊𝚗 𝙱𝚞𝚝 𝙾𝚗𝚎 𝚃𝚑𝚒𝚗𝚐 𝙰𝚛𝚎 𝚈𝚘𝚞 𝙰 𝙱𝚒𝚝𝚌𝚑 𝚃𝚑𝚎𝚢 𝚆𝚘𝚞𝚕𝚍 𝙾𝚗𝚕𝚢 𝙰𝚜𝚔 𝙼𝚎 𝚃𝚑𝚎 𝙰𝚋𝚘𝚞𝚝 𝚂𝚘𝚞𝚛𝚌𝚎 𝙲𝚘𝚍𝚎😏 ©️MissCutieBots@SAIFALISEW1508", show_alert=True
             )
 
-@bot.on_message(filters.command("start") & filters.private)
+@bot.on_message(filters.command("start","help") & filters.private)
 async def start_private(_, message):
     msg = START_TEXT.format(message.from_user.mention)
     await message.reply_photo(photo="https://te.legra.ph/file/ab6eb4c9785d231233c71.jpg",
