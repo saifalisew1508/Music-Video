@@ -244,7 +244,7 @@ async def repo_callback(_, CallbackQuery):
 @bot.on_message(filters.command("start") & filters.private)
 async def start_private(_, message):
     await message.reply_photo(photo ="https://te.legra.ph/file/c64734caae40345289712.jpg",
-                              caption = START_TEXT,
+                              caption = msg,
                               reply_markup = START_BUTTONS)
 
 
