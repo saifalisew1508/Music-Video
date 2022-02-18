@@ -234,8 +234,7 @@ async def repo_callback(_, CallbackQuery):
 
 @bot.on_callback_query(filters.regex("saifalisew1508"))
 async def saifalisew1508(_, CallbackQuery):
- return await CallbackQuery.mention(
-                "tg://user?id=1722896816", show_alert=True
+ return await CallbackQuery.mention("tg://user?id=1722896816"
             )
 
 @bot.on_message(filters.command("start") & filters.private)
