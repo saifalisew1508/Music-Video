@@ -235,7 +235,7 @@ async def cbcmds(_, query: CallbackQuery):
 ⚡  𝑷𝒐𝒘𝒆𝒓𝒆𝒅 𝑩𝒚: @MissCutieBots""",
     reply_markup = BACK_BUTTON)
 
-@Client.on_callback_query(filters.regex('^back$'))
+@bot.on_callback_query(filters.regex("back"))
 async def back(_, message):
     await message.answer()
     await start_private(_, message)
