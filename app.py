@@ -239,9 +239,9 @@ async def saifalisew1508(_, CallbackQuery):
 
 @bot.on_message(filters.command("start") & filters.private)
 async def start_private(_, message):
-    msg = START_TEXT.format(message.from_user.mention)
-    await message.reply_text(text = msg,
-                             reply_markup = START_BUTTONS)
+    await message.reply_photo(photo ="https://te.legra.ph/file/c64734caae40345289712.jpg",
+                              caption = START_TEXT,
+                              reply_markup = START_BUTTONS)
 
 
 @bot.on_message(filters.command(["join", "join@MissCutiePlayerBot"]) & filters.group)
