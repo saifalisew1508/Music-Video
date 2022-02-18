@@ -243,9 +243,10 @@ async def repo_callback(_, CallbackQuery):
 
 @bot.on_message(filters.command("start") & filters.private)
 async def start_private(_, message):
-    await message.reply_photo(photo ="https://te.legra.ph/file/c64734caae40345289712.jpg",
-                              caption = msg,
-                              reply_markup = START_BUTTONS)
+    msg = START_TEXT.format(message.from_user.mention)
+    await message.reply_photo(photo="https://telegra.ph/file/8fddb775d567de8a63940.jpg",
+                             caption = msg,
+                             reply_markup = START_BUTTONS)
 
 
 @bot.on_message(filters.command(["join", "join@MissCutiePlayerBot"]) & filters.group)
