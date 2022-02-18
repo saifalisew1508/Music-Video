@@ -103,8 +103,8 @@ GROUP_BUTTONS = InlineKeyboardMarkup(
 BACK_BUTTON = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(text="• Back •", callback_data="start_back"),
-            InlineKeyboardButton(text="• Source •", callback_data="repo_callback")
+            InlineKeyboardButton(text="• Close •", callback_data="close"),
+            InlineKeyboardButton(text="• Support •", url="https://t.me/MissCutie_Support")
         ]
     ]
 )
@@ -234,6 +234,11 @@ async def repo_callback(_, CallbackQuery):
  return await CallbackQuery.answer(
                 "𝙽𝚒𝚌𝚎 𝚃𝚛𝚢 𝙼𝚊𝚗 𝙱𝚞𝚝 𝙾𝚗𝚎 𝚃𝚑𝚒𝚗𝚐 𝙰𝚛𝚎 𝚈𝚘𝚞 𝙰 𝙱𝚒𝚝𝚌𝚑 𝚃𝚑𝚎𝚢 𝚆𝚘𝚞𝚕𝚍 𝙾𝚗𝚕𝚢 𝙰𝚜𝚔 𝙼𝚎 𝚃𝚑𝚎 𝙰𝚋𝚘𝚞𝚝 𝚂𝚘𝚞𝚛𝚌𝚎 𝙲𝚘𝚍𝚎😏 ©️MissCutieBots@SAIFALISEW1508", show_alert=True
             )
+
+@bot.on_callback_query(filters.regex("close"))
+async def close(bot, message):
+    await message.message.delete()
+    await message.message.reply_to_message.delete()
 
 @bot.on_message(filters.command("start") & filters.private)
 async def start_private(_, message):
