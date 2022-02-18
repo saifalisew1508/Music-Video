@@ -238,7 +238,7 @@ async def cbcmds(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("back"))
 async def back_cb(bot, message):
    await message.answer()
-   await start(bot, message, True)
+   await start_private(bot, message, True)
 
 @bot.on_callback_query(filters.regex("repo_callback"))
 async def repo_callback(_, CallbackQuery):
