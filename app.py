@@ -63,7 +63,7 @@ START_BUTTONS = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton("📝 𝙼𝚞𝚜𝚒𝚌 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜", callback_data="cbcmds"),
-            InlineKeyboardButton("🇮🇳 𝙼𝚊𝚗𝚊𝚐𝚎𝚛", mention="tg://user?id=1722896816")
+            InlineKeyboardButton("🇮🇳 𝙼𝚊𝚗𝚊𝚐𝚎𝚛", url="tg://user?id=1722896816")
         ],
         [
             InlineKeyboardButton("🧞‍♂ 𝚂𝚞𝚙𝚙𝚘𝚛𝚝", url="https://t.me/MissCutie_Support"),
@@ -223,7 +223,9 @@ async def cbcmds(_, query: CallbackQuery):
 » /unmute - **𝚄𝚗𝙼𝚞𝚝𝚎 𝚃𝚑𝚎 𝙰𝚜𝚜𝚒𝚜𝚝𝚊𝚗𝚝 𝙾𝚗 𝚅𝚘𝚒𝚌𝚎 𝙲𝚑𝚊𝚝**
 » /playlist - **𝚂𝚑𝚘𝚠 𝚈𝚘𝚞 𝚃𝚑𝚎 𝙿𝚕𝚊𝚢𝚕𝚒𝚜𝚝**
 » /restart - **𝚁𝚎𝚜𝚝𝚊𝚛𝚝 𝚃𝚑𝚎 𝙱𝚘𝚝**
-⚡  𝑷𝒐𝒘𝒆𝒓𝒆𝒅 𝑩𝒚: @MissCutieBots""")
+⚡  𝑷𝒐𝒘𝒆𝒓𝒆𝒅 𝑩𝒚: @MissCutieBots""",
+    reply_markup = [
+                       InlineKeyboardButton(text="back" , callback_data="back"
 
 
 @bot.on_callback_query(filters.regex("repo_callback"))
@@ -231,6 +233,11 @@ async def repo_callback(_, CallbackQuery):
  return await CallbackQuery.answer(
                 "𝙽𝚒𝚌𝚎 𝚃𝚛𝚢 𝙼𝚊𝚗 𝙱𝚞𝚝 𝙾𝚗𝚎 𝚃𝚑𝚒𝚗𝚐 𝙰𝚛𝚎 𝚈𝚘𝚞 𝙰 𝙱𝚒𝚝𝚌𝚑 𝚃𝚑𝚎𝚢 𝚆𝚘𝚞𝚕𝚍 𝙾𝚗𝚕𝚢 𝙰𝚜𝚔 𝙼𝚎 𝚃𝚑𝚎 𝙰𝚋𝚘𝚞𝚝 𝚂𝚘𝚞𝚛𝚌𝚎 𝙲𝚘𝚍𝚎😏 ©️MissCutieBots@SAIFALISEW1508", show_alert=True
             )
+
+@Client.on_callback_query(filters.regex("back"))
+async def back_cb(bot, message):
+    await message.answer()
+    await start(bot, message, True)
 
 @bot.on_message(filters.command("start") & filters.private)
 async def start_private(_, message):
