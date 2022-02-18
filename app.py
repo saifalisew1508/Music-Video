@@ -236,9 +236,11 @@ async def cbcmds(_, query: CallbackQuery):
     reply_markup = BACK_BUTTON)
 
 @Client.on_callback_query(filters.regex("back"))
-async def back_cb(bot, message):
-   await message.answer()
-   await start_private(bot, message, True)
+async def back_cb(_, message):
+   msg = START_TEXT.format(message.from_user.mention)
+   await message.reply_photo(photo="https://te.legra.ph/file/ab6eb4c9785d231233c71.jpg",
+                              caption = msg,
+                              reply_markup = START_BUTTONS)
 
 @bot.on_callback_query(filters.regex("repo_callback"))
 async def repo_callback(_, CallbackQuery):
