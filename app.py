@@ -179,7 +179,7 @@ async def on_end_handler(_, update: Update):
 async def close_handler(client: PyTgCalls, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
-        
+
 
 async def yt_video(link):
     proc = await asyncio.create_subprocess_exec(
@@ -196,7 +196,7 @@ async def yt_video(link):
         return 1, stdout.decode().split("\n")[0]
     else:
         return 0, stderr.decode()
-    
+
 
 async def yt_audio(link):
     proc = await asyncio.create_subprocess_exec(
@@ -269,15 +269,15 @@ async def join_chat(c: Client, m: Message):
             return await client.send_message(chat_id, "✅ 𝙰𝚜𝚜𝚒𝚜𝚝𝚊𝚗𝚝 𝙹𝚘𝚒𝚗𝚎𝚍 𝚃𝚑𝚎 𝙲𝚑𝚊𝚝")
     except UserAlreadyParticipant:
         return await client.send_message(chat_id, "✅ 𝙰𝚜𝚜𝚒𝚜𝚝𝚊𝚗𝚝 𝙰𝚕𝚛𝚎𝚊𝚍𝚢 𝙸𝚗 𝙲𝚑𝚊𝚝")
-    
+
 
 @bot.on_message(filters.command("start") & filters.group)
 async def start_group(_, message):
     await message.reply_photo(photo="https://te.legra.ph/file/c64734caae40345289712.jpg",
                               caption = f"𝙷𝚎𝚕𝚕𝚘 🚀 {message.from_user.mention} 🥁 𝙼𝚞𝚜𝚒𝚌 𝙱𝚘𝚝 𝙸𝚜 𝙰𝚕𝚒𝚟𝚎🎸.",
                               reply_markup = GROUP_BUTTONS)
-    
-    
+
+
 @bot.on_message(filters.command(["play", "vplay"]) & filters.group)
 async def video_play(_, message):
     await message.delete()
@@ -328,7 +328,7 @@ async def video_play(_, message):
                 return await m.edit("❗️YTDL ERROR !!!")               
     except Exception as e:
         return await m.edit(str(e))
-    
+
     try:
         if chat_id in QUEUE:
             position = add_to_queue(chat_id, yt.title, duration, link, playlink, doom, Q, thumb)
@@ -346,8 +346,8 @@ async def video_play(_, message):
             await m.delete()
     except Exception as e:
         return await m.edit(str(e))
-    
-    
+
+
 @bot.on_message(filters.command(["liveplay", "livestream"]) & filters.group)
 @is_admin
 async def stream_func(_, message):
@@ -358,7 +358,7 @@ async def stream_func(_, message):
     except:
         return await message.reply_text(f"<b>Usage:</b> <code>/{state} [link]</code>")
     chat_id = message.chat.id
-    
+
     if state == "liveplay":
         damn = AudioPiped
         emj = "🎵"
@@ -413,8 +413,8 @@ async def skip(_, message):
                     else:
                         out = out + "\n" + f"<b>#️⃣ {x}</b> - {hm}"
             await message.reply_text(out)
-            
-            
+
+
 @bot.on_message(filters.command(["playlist", "queue"]) & filters.group)
 @is_admin
 async def playlist(_, message):
@@ -438,7 +438,7 @@ async def playlist(_, message):
             await message.reply_text(out, disable_web_page_preview=True)
     else:
         await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
-    
+
 
 @bot.on_message(filters.command("stop") & filters.group)
 @is_admin
@@ -449,7 +449,7 @@ async def end(_, message):
         await app.leave_group_call(chat_id)
         LIVE_CHATS.remove(chat_id)
         return await message.reply_text("⏹ 𝚂𝚝𝚛𝚎𝚊𝚖𝚒𝚗𝚐 𝚂𝚝𝚘𝚙𝚙𝚎𝚍.")
-        
+
     if chat_id in QUEUE:
         await app.leave_group_call(chat_id)
         clear_queue(chat_id)
@@ -471,8 +471,8 @@ async def pause(_, message):
             await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
     else:
         await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
-        
-        
+
+
 @bot.on_message(filters.command("resume") & filters.group)
 @is_admin
 async def resume(_, message):
@@ -486,8 +486,8 @@ async def resume(_, message):
             await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
     else:
         await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
-        
-        
+
+
 @bot.on_message(filters.command("mute") & filters.group)
 @is_admin
 async def mute(_, message):
@@ -501,8 +501,8 @@ async def mute(_, message):
             await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
     else:
         await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
-        
-        
+
+
 @bot.on_message(filters.command("unmute") & filters.group)
 @is_admin
 async def unmute(_, message):
@@ -516,8 +516,8 @@ async def unmute(_, message):
             await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
     else:
         await message.reply_text("❗𝙽𝚘𝚝𝚑𝚒𝚗𝚐 𝙸𝚜 𝙿𝚕𝚊𝚢𝚒𝚗𝚐.")
-        
-        
+
+
 @bot.on_message(filters.command("restart"))
 async def restart(_, message):
     user_id = message.from_user.id
@@ -525,7 +525,7 @@ async def restart(_, message):
         return
     await message.reply_text("🛠 <i>𝚁𝚎𝚜𝚝𝚊𝚛𝚝𝚒𝚗𝚐 𝚃𝚑𝚎 𝙱𝚘𝚝 𝙿𝚕𝚎𝚊𝚜𝚎 𝚆𝚊𝚒𝚝 ✋🏻 𝙸𝚝'𝚜 𝙼𝚊𝚢 𝚃𝚊𝚔𝚎 𝟺-𝟻 𝙼𝚒𝚗𝚞𝚝𝚎𝚜 🤐...</i>")
     os.system(f"kill -9 {os.getpid()} && python3 app.py")
-            
+
 
 app.start()
 bot.run()
