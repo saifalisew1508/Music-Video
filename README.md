@@ -19,6 +19,12 @@
   
 <p align="left"><a href="https://dashboard.heroku.com/new?template=https://github.com/saifalisew1508/Music-Video"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="250" alt="Deploy"></a></p>
 
+
+## 🚀 Okteto Deployment
+<h4>Click the button below to deploy on Okteto!</h4>
+<a href="https://cloud.okteto.com/deploy?repository=https://github.com/saifalisew1508/Music-Video"><img src="https://img.shields.io/badge/Deploy%20To%20okteto-informational?style=for-the-badge&logo=Okteto" width="200""/></a>
+
+
 ## 🏃‍♂ Pyrogram Session
 
 <p align="left"><a href="https://replit.com/@AaravxD/PyroStringSession#main.py"><img src="https://img.shields.io/badge/Generate%20On%20Repl-blueviolet?style=for-the-badge&logo=appveyor" width="245" alt="Repl"></a></p>  
