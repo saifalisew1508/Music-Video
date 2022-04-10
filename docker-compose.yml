@@ -1,0 +1,10 @@
+version: "4"
+services:
+  worker:
+    build: .
+    environment:
+      API_ID: $API_ID
+      API_HASH: $API_HASH
+      BOT_TOKEN: $BOT_TOKEN
+      SESSION_NAME: $SESSION_NAME
+      OWNER_ID: $OWNER_ID
