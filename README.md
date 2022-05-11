@@ -43,14 +43,14 @@
 | -------  | ---------------------------------------------------- |
 | /play    | play the given query or YouTube link as audio        |
 | /vplay   | play the given query or YouTube link as video        |
-| /liveplay | stream m3u8 or live stream audio link                |
-| /livestream | stream m3u8 or live stream video link                |
+| /liveplay | stream m3u8 or live stream audio link               |
+| /livestream | stream m3u8 or live stream video link             |
 | /queue   | shows the songs in queue                             |        
 | /skip    | play next song in queue                              |
 | /pause   | pause the audio stream                               |
 | /resume  | resume the audio stream                              |
-| /mute    | mute the assistant                                    |
-| /unmute  | unmute the assistant                                  |
+| /mute    | mute the assistant                                   |
+| /unmute  | unmute the assistant                                 |
 | /stop    | stop streaming and remove the assistant from the call  |
 | /restart | restart the bot                                      |
 
