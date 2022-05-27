@@ -7,11 +7,7 @@ def is_admin(func):
         try:
             user = await message.chat.get_member(message.from_user.id)
             admin_strings = ("creator", "administrator")
-            if user.status not in admin_strings:
-                is_admin = False
-            else:
-                is_admin = True
-
+            is_admin = user.status in admin_strings
         except ValueError:
             is_admin = True
         if is_admin:
