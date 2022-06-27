@@ -1,1 +1,1 @@
-worker: python3 SayuMusic.py
+worker: python3 player.py
