@@ -60,19 +60,28 @@ START_TEXT = """
 START_BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("♦️ 𝙰𝚍𝚍 𝚈𝚘𝚞𝚛 𝙶𝚛𝚘𝚞𝚙 ♦️", url=f"https://t.me/MissCutiePlayerBot?startgroup=true")
+            InlineKeyboardButton(
+                "♦️ 𝙰𝚍𝚍 𝚈𝚘𝚞𝚛 𝙶𝚛𝚘𝚞𝚙 ♦️",
+                url="https://t.me/MissCutiePlayerBot?startgroup=true",
+            )
         ],
         [
             InlineKeyboardButton("📝 𝙼𝚞𝚜𝚒𝚌 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜", callback_data="cbcmds"),
-            InlineKeyboardButton("🇮🇳 𝙼𝚊𝚗𝚊𝚐𝚎𝚛", user_id="1930139488")
+            InlineKeyboardButton("🇮🇳 𝙼𝚊𝚗𝚊𝚐𝚎𝚛", user_id="1930139488"),
         ],
         [
-            InlineKeyboardButton("🧞‍♂ 𝚂𝚞𝚙𝚙𝚘𝚛𝚝", url="https://t.me/MissCutie_Support"),
-            InlineKeyboardButton("🔔 𝚄𝚙𝚍𝚊𝚝𝚎𝚜", url="https://t.me/MissCutieUpdates")
+            InlineKeyboardButton(
+                "🧞‍♂ 𝚂𝚞𝚙𝚙𝚘𝚛𝚝", url="https://t.me/MissCutie_Support"
+            ),
+            InlineKeyboardButton(
+                "🔔 𝚄𝚙𝚍𝚊𝚝𝚎𝚜", url="https://t.me/MissCutieUpdates"
+            ),
         ],
         [
-            InlineKeyboardButton("↫ 𝚂𝚘𝚞𝚛𝚌𝚎 𝙲𝚘𝚍𝚎 ↬", callback_data="repo_callback")
-        ]
+            InlineKeyboardButton(
+                "↫ 𝚂𝚘𝚞𝚛𝚌𝚎 𝙲𝚘𝚍𝚎 ↬", callback_data="repo_callback"
+            )
+        ],
     ]
 )
 
@@ -111,60 +120,56 @@ BACK_BUTTON = InlineKeyboardMarkup(
 )
 
 async def skip_current_song(chat_id):
-    if chat_id in QUEUE:
-        chat_queue = get_queue(chat_id)
-        if len(chat_queue) == 1:
-            await app.leave_group_call(chat_id)
-            clear_queue(chat_id)
-            return 1
-        else:
-            title = chat_queue[1][0]
-            duration = chat_queue[1][1]
-            link = chat_queue[1][2]
-            playlink = chat_queue[1][3]
-            type = chat_queue[1][4]
-            Q = chat_queue[1][5]
-            thumb = chat_queue[1][6]
-            if type == "Audio":
-                await app.change_stream(
-                    chat_id,
-                    AudioPiped(
-                        playlink,
-                    ),
-                )
-            elif type == "Video":
-                if Q == "high":
-                    hm = HighQualityVideo()
-                elif Q == "mid":
-                    hm = MediumQualityVideo()
-                elif Q == "low":
-                    hm = LowQualityVideo()
-                else:
-                    hm = MediumQualityVideo()
-                await app.change_stream(
-                    chat_id, AudioVideoPiped(playlink, HighQualityAudio(), hm)
-                )
-            pop_an_item(chat_id)
-            await bot.send_photo(chat_id, photo = thumb,
-                                 caption = f"▶️ <b>Now playing:</b> [{title}]({link}) | `{type}` \n\n⏳ <b>Duration:</b> {duration}",
-                                 reply_markup = BUTTONS)
-            return [title, link, type, duration, thumb]
-    else:
+    if chat_id not in QUEUE:
         return 0
+    chat_queue = get_queue(chat_id)
+    if len(chat_queue) == 1:
+        await app.leave_group_call(chat_id)
+        clear_queue(chat_id)
+        return 1
+    else:
+        title = chat_queue[1][0]
+        duration = chat_queue[1][1]
+        link = chat_queue[1][2]
+        playlink = chat_queue[1][3]
+        type = chat_queue[1][4]
+        Q = chat_queue[1][5]
+        thumb = chat_queue[1][6]
+        if type == "Audio":
+            await app.change_stream(
+                chat_id,
+                AudioPiped(
+                    playlink,
+                ),
+            )
+        elif type == "Video":
+            if Q == "high":
+                hm = HighQualityVideo()
+            elif Q == "low":
+                hm = LowQualityVideo()
+            else:
+                hm = MediumQualityVideo()
+            await app.change_stream(
+                chat_id, AudioVideoPiped(playlink, HighQualityAudio(), hm)
+            )
+        pop_an_item(chat_id)
+        await bot.send_photo(chat_id, photo = thumb,
+                             caption = f"▶️ <b>Now playing:</b> [{title}]({link}) | `{type}` \n\n⏳ <b>Duration:</b> {duration}",
+                             reply_markup = BUTTONS)
+        return [title, link, type, duration, thumb]
 
 
 async def skip_item(chat_id, lol):
-    if chat_id in QUEUE:
-        chat_queue = get_queue(chat_id)
-        try:
-            x = int(lol)
-            title = chat_queue[x][0]
-            chat_queue.pop(x)
-            return title
-        except Exception as e:
-            print(e)
-            return 0
-    else:
+    if chat_id not in QUEUE:
+        return 0
+    chat_queue = get_queue(chat_id)
+    try:
+        x = int(lol)
+        title = chat_queue[x][0]
+        chat_queue.pop(x)
+        return title
+    except Exception as e:
+        print(e)
         return 0
 
 
@@ -192,10 +197,7 @@ async def yt_video(link):
         stderr=asyncio.subprocess.PIPE,
     )
     stdout, stderr = await proc.communicate()
-    if stdout:
-        return 1, stdout.decode().split("\n")[0]
-    else:
-        return 0, stderr.decode()
+    return (1, stdout.decode().split("\n")[0]) if stdout else (0, stderr.decode())
 
 
 async def yt_audio(link):
@@ -209,17 +211,14 @@ async def yt_audio(link):
         stderr=asyncio.subprocess.PIPE,
     )
     stdout, stderr = await proc.communicate()
-    if stdout:
-        return 1, stdout.decode().split("\n")[0]
-    else:
-        return 0, stderr.decode()
+    return (1, stdout.decode().split("\n")[0]) if stdout else (0, stderr.decode())
 
 
 @bot.on_callback_query(filters.regex("cbcmds"))
 async def cbcmds(_, query: CallbackQuery):
     await query.answer("Commands Menu")
     await query.edit_message_text(
-        f"""🇮🇳 𝑯𝒆𝒍𝒍𝒐 » **⚜𝑳𝒊𝒔𝒕 𝑶𝒇 𝑨𝒗𝒂𝒊𝒍𝒂𝒃𝒍𝒆 𝑪𝒐𝒎𝒎𝒂𝒏𝒅𝒔⚜**
+        """🇮🇳 𝑯𝒆𝒍𝒍𝒐 » **⚜𝑳𝒊𝒔𝒕 𝑶𝒇 𝑨𝒗𝒂𝒊𝒍𝒂𝒃𝒍𝒆 𝑪𝒐𝒎𝒎𝒂𝒏𝒅𝒔⚜**
 » /play (𝚂𝚘𝚗𝚐 𝙽𝚊𝚖𝚎/𝙻𝚒𝚗𝚔) - **𝙿𝚕𝚊𝚢 𝙼𝚞𝚜𝚒𝚌**
 » /vplay (𝚟𝚒𝚍𝚎𝚘 𝚗𝚊𝚖𝚎/𝚕𝚒𝚗𝚔) - **𝙿𝚕𝚊𝚢 𝚅𝚒𝚍𝚎𝚘**
 » /liveplay (𝚈𝚘𝚞𝚃𝚞𝚋𝚎 𝙻𝚒𝚗𝚔) - **𝙿𝚕𝚊𝚢 𝙻𝚒𝚟𝚎 𝙼𝚞𝚜𝚒𝚌**
@@ -234,7 +233,8 @@ async def cbcmds(_, query: CallbackQuery):
 » /playlist - **𝚂𝚑𝚘𝚠 𝚈𝚘𝚞 𝚃𝚑𝚎 𝙿𝚕𝚊𝚢𝚕𝚒𝚜𝚝**
 » /restart - **𝚁𝚎𝚜𝚝𝚊𝚛𝚝 𝚃𝚑𝚎 𝙱𝚘𝚝**
 ⚡  𝑷𝒐𝒘𝒆𝒓𝒆𝒅 𝑩𝒚: @MissCutieBots""",
-    reply_markup = BACK_BUTTON)
+        reply_markup=BACK_BUTTON,
+    )
 
 
 @bot.on_callback_query(filters.regex("repo_callback"))
@@ -290,7 +290,7 @@ async def video_play(_, message):
     chat_id = message.chat.id
     if chat_id in LIVE_CHATS:
         return await message.reply_text("❗️𝙿𝚕𝚎𝚊𝚜𝚎 𝚂𝚎𝚗𝚍 <code>/stop</code> 𝚃𝚘 𝙴𝚗𝚍 𝙲𝚞𝚛𝚛𝚎𝚗𝚝 𝙻𝚒𝚟𝚎 𝚂𝚝𝚛𝚎𝚊𝚖𝚒𝚗𝚐 𝙱𝚎𝚏𝚘𝚛𝚎 𝙿𝚕𝚊𝚢 𝚂𝚘𝚗𝚐𝚜 𝙾𝚛 𝚅𝚒𝚍𝚎𝚘𝚜.")
-    
+
     m = await message.reply_text("🔄 𝙿𝚛𝚘𝚌𝚎𝚜𝚜𝚒𝚗𝚐...")
     if state == "play":
         damn = AudioPiped
@@ -334,8 +334,7 @@ async def video_play(_, message):
             position = add_to_queue(chat_id, yt.title, duration, link, playlink, doom, Q, thumb)
             caps = f"#️⃣ [{yt.title}]({link}) <b>queued at position {position}</b> \n\n⏳ <b>Duration:</b> {duration}"
             await message.reply_photo(thumb, caption=caps)
-            await m.delete()
-        else:            
+        else:    
             await app.join_group_call(
                 chat_id,
                 damn(playlink),
@@ -343,7 +342,7 @@ async def video_play(_, message):
             )
             add_to_queue(chat_id, yt.title, duration, link, playlink, doom, Q, thumb)
             await message.reply_photo(thumb, caption=cap, reply_markup=BUTTONS)
-            await m.delete()
+        await m.delete()
     except Exception as e:
         return await m.edit(str(e))
 
@@ -404,13 +403,9 @@ async def skip(_, message):
             items = [int(x) for x in skip.split(" ") if x.isdigit()]
             items.sort(reverse=True)
             for x in items:
-                if x == 0:
-                    pass
-                else:
+                if x != 0:
                     hm = await skip_item(chat_id, x)
-                    if hm == 0:
-                        pass
-                    else:
+                    if hm != 0:
                         out = out + "\n" + f"<b>#️⃣ {x}</b> - {hm}"
             await message.reply_text(out)
 
