@@ -3,7 +3,7 @@
 
 <p align='center'>
 <a href="https://www.python.org/" alt="made-with-python"> <img src="https://img.shields.io/badge/Made%20with-Python-1f425f.svg?style=flat-square&logo=python&color=blue"></a>
-<a href="https://github.com/saifalisew1508/Music-Video/graphs/commit-activity" alt="Maintenance"> <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square"></a></p>
+<a href="https://github.com/saifalisew1508/Music-Video/graphs/commit-activity" alt="Maintenance"> <img src="https://img.shields.io/badge/Maintained%3F-no-red.svg?style=flat-square"></a></p>
 
 <p align="center"><a href="https://t.me/MissCutieBots"><img src="https://te.legra.ph/file/c64734caae40345289712.jpg" height="300" width="310" alt="Music Player"></p>
   
