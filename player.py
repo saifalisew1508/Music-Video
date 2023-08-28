@@ -179,9 +179,8 @@ async def on_end_handler(_, update: Update):
         chat_id = update.chat_id
         await skip_current_song(chat_id)
 
-
 @app.on_closed_voice_chat()
-async def close_handler(client: PyTgCalls, chat_id: int):
+async def close_handler(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
 
@@ -364,22 +363,27 @@ async def stream_func(_, message):
     elif state == "livestream":
         damn = AudioVideoPiped
         emj = "🎬"
-    m = await message.reply_text("🔄 𝙿𝚛𝚘𝚌𝚎𝚜𝚜𝚒𝚗𝚐...")
+    m = await message.reply_text("🔄 Processing...")
     try:
         if chat_id in QUEUE:
-            return await m.edit("❗️𝙿𝚕𝚎𝚊𝚜𝚎 𝚂𝚎𝚗𝚍 <code>/stop</code> 𝚃𝚘 𝙴𝚗𝚍 𝚅𝚘𝚒𝚌𝚎 𝙲𝚑𝚊𝚝 𝙱𝚎𝚏𝚘𝚛𝚎 𝙻𝚒𝚟𝚎 𝚂𝚝𝚛𝚎𝚊𝚖𝚒𝚗𝚐.")
+            return await m.edit("❗️Please stop the current playback using /stop command first.")
         elif chat_id in LIVE_CHATS:
             await app.change_stream(
                 chat_id,
-                damn(link)
+                damn(link),
             )
-            await m.edit(f"{emj} Started streaming: [Link]({link})", disable_web_page_preview=True)
-        else:    
+            await m.edit(
+                f"{emj} Started streaming: [Link]({link})", disable_web_page_preview=True
+            )
+        else:
             await app.join_group_call(
                 chat_id,
                 damn(link),
-                stream_type=StreamType().pulse_stream)
-            await m.edit(f"{emj} Started streaming: [Link]({link})", disable_web_page_preview=True)
+                stream_type=StreamType().pulse_stream,
+            )
+            await m.edit(
+                f"{emj} Started streaming: [Link]({link})", disable_web_page_preview=True
+            )
             LIVE_CHATS.append(chat_id)
     except Exception as e:
         return await m.edit(str(e))
