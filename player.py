@@ -114,7 +114,7 @@ BACK_BUTTON = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton(text="• Close •", callback_data="close"),
-            InlineKeyboardButton(text="• Support •", url="https://t.me/MissCutie_Support")
+            InlineKeyboardButton(text="• Support •", url="https://t.me/TelegramSupport")
         ]
     ]
 )
